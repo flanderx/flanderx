@@ -883,7 +883,7 @@ task.spawn(function()
 		end)
 	else
 		game.StarterGui:SetCore("ChatMakeSystemMessage", {
-			Text = "Made by Adamk0o",
+			Text = "FUCK RAIJIN, also i had to sacrifice myself with the work in No problem.",
 			Color = Color3.fromRGB(255, 0, 0),
 			TextSize = 20
 		})
